@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdn1.lncld.net/static/js/av-min-1.0.0.js"></script>
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script>
+    function testLeanCloud() {
+        var APP_ID = 'NVP9LiPDEptPyehqOAOXjqHF-gzGzoHsz';
+        var APP_KEY = 'FHGozXAPB8Leco7GjEpMajGK';
+        AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY,
+            // 启用美国节点
+//            region: 'us'
+        });
+        AV.User.requestLoginSmsCode('18817875047').then(function (success) {
+
+        }, function (error) {
+            alert(error.toString())
+        });
+        AV.User.logIn('fc4a8235-3e13-431b-8b56-c0ca73e1aba2','123456').then(function (loginedUser) {
+            console.log(loginedUser);
+        },function (error) {
+            console.log(error);
+        })
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="testLeanCloud()">测试LeanCloud</button>
+<button type="button" class="btn btn-default">默认按钮</button>
+<button type="button" class="btn btn-danger">危险按钮</button>
+<button type="button" class="btn btn-success">成功按钮</button>
+</body>
+</html>
